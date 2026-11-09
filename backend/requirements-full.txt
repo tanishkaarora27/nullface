@@ -1,0 +1,11 @@
+# Full stack: pulls the real models named in the spec. Needs ~3 GB of downloads; a GPU is optional.
+-r requirements.txt
+torch>=2.2
+transformers>=4.40
+sentence-transformers>=2.7
+chromadb>=0.5
+librosa>=0.10
+onnxruntime>=1.17
+insightface>=0.7.3          # buffalo_l (ArcFace) downloads on first use; inswapper_128.onnx must be placed in ~/.insightface/models/
+redis>=5
+psycopg[binary]>=3.1

@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "NullFace — Cloak Before Upload",
+  "version": "0.1.0",
+  "description": "Intercepts photo uploads to Instagram, WhatsApp Web, LinkedIn & more and replaces them with NullFace-immunized, watermarked copies before they leave your browser.",
+  "permissions": ["storage", "contextMenus", "notifications", "activeTab"],
+  "host_permissions": ["https://www.instagram.com/*", "https://web.whatsapp.com/*", "https://www.linkedin.com/*", "https://x.com/*", "https://twitter.com/*", "https://www.facebook.com/*", "http://localhost/*", "http://127.0.0.1/*", "https://*/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_icon": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" } },
+  "options_page": "options.html",
+  "icons": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
+  "content_scripts": [
+    { "matches": ["https://www.instagram.com/*", "https://web.whatsapp.com/*", "https://www.linkedin.com/*", "https://x.com/*", "https://twitter.com/*", "https://www.facebook.com/*"],
+      "js": ["content.js"], "run_at": "document_start", "all_frames": true }
+  ]
+}

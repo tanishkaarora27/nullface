@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/.env
+backend/nullface.db
+backend/chroma/
+.venv/
+node_modules/
+.DS_Store

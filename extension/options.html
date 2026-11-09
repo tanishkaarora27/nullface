@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><title>NullFace options</title><style>
+body{max-width:520px;margin:30px auto;font:14px system-ui;background:#0d1424;color:#e8eefc;padding:0 16px}
+label{display:block;margin:14px 0 4px;color:#8d9bbd}input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #1f2b45;background:#0a1020;color:#e8eefc}
+button{margin-top:16px;padding:10px 16px;border:none;border-radius:8px;background:#22d3ee;font-weight:600}code{background:#0a1020;padding:2px 6px;border-radius:6px}
+</style></head><body>
+<h2>NullFace extension</h2>
+<p>Mint an API key in the NullFace app (Account → Mint API key). Only its SHA-256 hash is stored server-side.</p>
+<label>API base URL</label><input id="apiBase" placeholder="http://localhost:8000">
+<label>API key (<code>nf_live_…</code>)</label><input id="apiKey" type="password">
+<label>Protection profile</label><select id="profile"><option>WHATSAPP_ROBUST</option><option>INSTAGRAM_ROBUST</option><option>MAX_STEALTH</option><option>MAX_IMMUNITY</option></select>
+<button id="save">Save</button> <span id="msg"></span>
+<script src="options.js"></script></body></html>
