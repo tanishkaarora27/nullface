@@ -8,10 +8,7 @@
 
 *Don't just detect deepfakes after the damage is done — make your photos mathematically immune to AI, trace stolen identities cryptographically, and intercept coercive scam calls in real time.*
 
-[![CodeQuest'26](https://img.shields.io/badge/CodeQuest'26-National%20Tech%20Hackathon-7c3aed?style=for-the-badge)](#)
-[![Team](https://img.shields.io/badge/Team-Pixel%20Pioneers-22d3ee?style=for-the-badge)](#-team)
-[![Tests](https://img.shields.io/badge/tests-11%20passing-22c55e?style=for-the-badge)](#-tests--benchmarks)
-[![License](https://img.shields.io/badge/license-MIT-0d1424?style=for-the-badge)](LICENSE)
+
 
 </div>
 
@@ -20,7 +17,7 @@
 ## 🎬 Live Demo
 
 <!-- ============================================================
-     TODO (Ksheerja): paste the YouTube link + the public demo URL.
+     
      1. Replace VIDEO_ID below (both in the thumbnail and the href).
      2. Replace LIVE_DEMO_URL with the hosted link (e.g. Render / Railway / Modal / HF Space).
      ============================================================ -->
@@ -33,7 +30,7 @@
   <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="NullFace demo video" width="720">
 </a>
 
-**🔗 Try it yourself:** **[LIVE_DEMO_URL](https://LIVE_DEMO_URL)** &nbsp;·&nbsp; API docs: `LIVE_DEMO_URL/docs`
+
 
 </div>
 
