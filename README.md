@@ -24,9 +24,9 @@
 
 <div align="center">
 
-### ▶️ Watch the 3-minute walkthrough
+### ▶️ Watch the 2-minute walkthrough
 
-<a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank">
+<a href="[https://www.youtube.com/watch?v=VIDEO_ID" target=](https://youtu.be/9owNY_jauRE)"_blank">
   <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="NullFace demo video" width="720">
 </a>
 
