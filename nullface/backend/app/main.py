@@ -41,8 +41,33 @@ if settings.FRONTEND_DIR.exists():
     app.mount("/static", StaticFiles(directory=settings.FRONTEND_DIR), name="static")
 
     @app.get("/", include_in_schema=False)
+    @app.get("/index.html", include_in_schema=False)
     def spa_root():
         return FileResponse(settings.FRONTEND_DIR / "index.html")
+
+    @app.get("/photocloak", include_in_schema=False)
+    @app.get("/photocloak.html", include_in_schema=False)
+    def spa_photocloak():
+        p = settings.FRONTEND_DIR / "photocloak.html"
+        return FileResponse(p if p.is_file() else settings.FRONTEND_DIR / "index.html")
+
+    @app.get("/deeplens", include_in_schema=False)
+    @app.get("/deeplens.html", include_in_schema=False)
+    def spa_deeplens():
+        p = settings.FRONTEND_DIR / "deeplens.html"
+        return FileResponse(p if p.is_file() else settings.FRONTEND_DIR / "index.html")
+
+    @app.get("/scamradar", include_in_schema=False)
+    @app.get("/scamradar.html", include_in_schema=False)
+    def spa_scamradar():
+        p = settings.FRONTEND_DIR / "scamradar.html"
+        return FileResponse(p if p.is_file() else settings.FRONTEND_DIR / "index.html")
+
+    @app.get("/ledger", include_in_schema=False)
+    @app.get("/ledger.html", include_in_schema=False)
+    def spa_ledger():
+        p = settings.FRONTEND_DIR / "ledger.html"
+        return FileResponse(p if p.is_file() else settings.FRONTEND_DIR / "index.html")
 
     @app.get("/{asset}", include_in_schema=False)
     def spa_asset(asset: str):

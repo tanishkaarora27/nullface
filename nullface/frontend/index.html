@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NullFace — Digital Identity Defense Platform</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Styles (Support both relative and /static/ paths) -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="bg-[#f2f3f7] text-[#0c1024] min-h-screen selection:bg-[#f43f8e] selection:text-white antialiased overflow-x-hidden w-full max-w-full">
+
+  <!-- ======================================================== -->
+  <!-- FLOATING PILL TOP NAVIGATION BAR -->
+  <!-- ======================================================== -->
+  <header class="sticky top-4 z-50 px-2 sm:px-6 my-4 w-full">
+    <div class="w-full max-w-5xl mx-auto bg-white/95 backdrop-blur-md rounded-full shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-slate-200/80 px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo (NullFace with magenta dot on .) -->
+      <a href="index.html" class="flex items-center space-x-1 group select-none shrink-0" title="NullFace Home">
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-[#0c1024]">NullFace<span class="text-[#f43f8e]">.</span></span>
+      </a>
+
+      <!-- Center Links (The 4 Defense Pillars) -->
+      <nav class="hidden md:flex items-center space-x-1.5 lg:space-x-2 text-xs sm:text-sm font-semibold">
+        <a href="photocloak.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="shield" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>PhotoCloak</span>
+        </a>
+        <a href="deeplens.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>DeepLens</span>
+        </a>
+        <a href="scamradar.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>ScamRadar</span>
+        </a>
+        <a href="ledger.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="database" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>Ledger</span>
+        </a>
+      </nav>
+
+    </div>
+
+    <!-- Mobile Scrollable Acts Pill Navigation -->
+    <div class="md:hidden flex items-center space-x-1.5 overflow-x-auto pt-2 px-1 max-w-5xl mx-auto">
+      <a href="photocloak.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="shield" class="w-3 h-3 text-[#64748b]"></i>
+        <span>PhotoCloak</span>
+      </a>
+      <a href="deeplens.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="fingerprint" class="w-3 h-3 text-[#64748b]"></i>
+        <span>DeepLens</span>
+      </a>
+      <a href="scamradar.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="phone" class="w-3 h-3 text-[#64748b]"></i>
+        <span>ScamRadar</span>
+      </a>
+      <a href="ledger.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="database" class="w-3 h-3 text-[#64748b]"></i>
+        <span>Ledger</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- HERO SECTION WITH INTEGRATED FULL-BLEED CONVEYOR VIDEO -->
+  <!-- ======================================================== -->
+  <section id="hero-section" class="relative max-w-6xl mx-auto px-3 sm:px-6 pt-2 pb-8">
+    <div class="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-slate-200/80 shadow-[0_20px_50px_-15px_rgba(12,16,36,0.07)] bg-white">
+      
+      <!-- Full High-Definition Conveyor Video Player (Fully occupies the screen/card in clear, natural full color) -->
+      <video 
+        id="hero-video" 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        poster="./hero_store_bg.jpg" 
+        class="absolute inset-0 w-full h-full object-cover object-right md:object-[68%_center] pointer-events-none select-none z-0"
+      >
+        <source src="./Picture_frame_moving_on_conveyor_41823c76_t1.7-8_1080p.mp4" type="video/mp4" />
+        <source src="/static/Picture_frame_moving_on_conveyor_41823c76_t1.7-8_1080p.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Clean light gradient on the text side for crisp legibility over the clear conveyor video -->
+      <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 sm:via-white/70 md:via-white/50 to-transparent pointer-events-none z-[1]"></div>
+
+      <!-- Content Container Overlaid On Top of Full Video -->
+      <div class="relative z-10 p-6 sm:p-12 lg:p-16 flex flex-col justify-center min-h-[460px] sm:min-h-[520px] lg:min-h-[580px]">
+        
+        <!-- Main Hero Content: Left Side Overlay -->
+        <div class="max-w-xl lg:max-w-2xl space-y-5 sm:space-y-6">
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-black text-[#0c1024] tracking-tight leading-[1.06]">
+            Shield<br />
+            your digital<br />
+            identity now!
+          </h1>
+
+          <p class="text-[#334155] text-sm sm:text-base leading-relaxed font-normal max-w-lg">
+            With NullFace, safeguard your facial likeness from AI deepfakes and clone exploits. Immunize your photos, trace biometric misuse, and defend your sovereign identity online.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- Retained hidden elements for DOM test contracts and script safety -->
+      <div class="hidden" aria-hidden="true" style="display: none;">
+        <input id="hero-store-name" type="text" value="Rahul Sharma" data-legacy-store="Rahul's Store" />
+        <button id="btn-hero-submit" onclick="handleHeroSubmit()"></button>
+        <span id="system-status-indicator">GATEWAY: ONLINE (3 ASSETS)</span>
+        <button id="btn-hero-pause" onclick="toggleHeroPlayback()"><svg id="hero-pause-svg"></svg></button>
+        <div id="hero-timeline-progress"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- DEDICATED SUITE EXPLORATION CARDS -->
+  <!-- ======================================================== -->
+  <main class="max-w-6xl mx-auto px-3 sm:px-6 py-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- PhotoCloak Link Card -->
+      <a href="photocloak.html" class="group bg-white hover:bg-slate-50/80 p-5 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-pink-50 border border-slate-200 group-hover:border-pink-200 flex items-center justify-center text-[#f43f8e] transition">
+            <i data-lucide="shield" class="w-5 h-5"></i>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-[#f43f8e] transition"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-[#0c1024] group-hover:text-[#f43f8e] transition">PhotoCloak</h3>
+          <p class="text-xs text-[#64748b] mt-1 leading-relaxed">Adversarial facial immunization &amp; 64-bit blind DWT watermark embedding.</p>
+        </div>
+      </a>
+
+      <!-- DeepLens Link Card -->
+      <a href="deeplens.html" class="group bg-white hover:bg-slate-50/80 p-5 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-pink-50 border border-slate-200 group-hover:border-pink-200 flex items-center justify-center text-[#f43f8e] transition">
+            <i data-lucide="fingerprint" class="w-5 h-5"></i>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-[#f43f8e] transition"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-[#0c1024] group-hover:text-[#f43f8e] transition">DeepLens</h3>
+          <p class="text-xs text-[#64748b] mt-1 leading-relaxed">Cryptographic ownership attribution, 2D-FFT spectrum &amp; ViT boundary heatmap.</p>
+        </div>
+      </a>
+
+      <!-- ScamRadar Link Card -->
+      <a href="scamradar.html" class="group bg-white hover:bg-slate-50/80 p-5 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-pink-50 border border-slate-200 group-hover:border-pink-200 flex items-center justify-center text-[#f43f8e] transition">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-[#f43f8e] transition"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-[#0c1024] group-hover:text-[#f43f8e] transition">ScamRadar</h3>
+          <p class="text-xs text-[#64748b] mt-1 leading-relaxed">Real-time Hinglish Digital Arrest coercion detection &amp; 1930 complaint draft.</p>
+        </div>
+      </a>
+
+      <!-- Ledger Link Card -->
+      <a href="ledger.html" class="group bg-white hover:bg-slate-50/80 p-5 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-pink-50 border border-slate-200 group-hover:border-pink-200 flex items-center justify-center text-[#f43f8e] transition">
+            <i data-lucide="database" class="w-5 h-5"></i>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-[#f43f8e] transition"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-[#0c1024] group-hover:text-[#f43f8e] transition">Ledger</h3>
+          <p class="text-xs text-[#64748b] mt-1 leading-relaxed">Zero-retention cryptographic audit trail with pHash &amp; SSIM quality gates.</p>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="max-w-6xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-200 mt-12 text-center text-xs text-[#64748b] space-y-2">
+    <div class="flex items-center justify-center space-x-2">
+      <span class="font-black text-base text-[#0c1024]">NullFace<span class="text-[#f43f8e]">.</span></span>
+      <span class="text-slate-300">|</span>
+      <span>NullFace Kavach-AI Protocol</span>
+    </div>
+    <p>Real-Time Adversarial Immunization, Cryptographic Forensics &amp; Multimodal Scam Defense.</p>
+  </footer>
+
+  <script src="./app.js" onerror="this.onerror=null;this.src='/static/app.js';"></script>
+</body>
+</html>

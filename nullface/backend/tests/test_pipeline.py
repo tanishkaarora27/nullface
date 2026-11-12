@@ -146,3 +146,44 @@ def test_call_stream_websocket(client):
         ws.send_bytes(pcm)
         u = ws.receive_json(); assert u["voice_clone_chunk"] is not None
         ws.send_json({"type": "end"})
+
+
+def test_act_pages_and_navigation(client):
+    res_index = client.get("/")
+    assert res_index.status_code == 200
+    html_index = res_index.text
+    assert "NullFace" in html_index
+    assert "PhotoCloak" in html_index
+    assert "DeepLens" in html_index
+    assert "ScamRadar" in html_index
+    assert "Ledger" in html_index
+    assert "Act 1: PhotoCloak" not in html_index
+    assert "Act 2: DeepLens" not in html_index
+    assert "Act 3: ScamRadar" not in html_index
+    assert "Act 4: Ledger" not in html_index
+
+    # Verify hero video integration and controls
+    assert 'id="hero-video"' in html_index
+    assert "Picture_frame_moving_on_conveyor_41823c76_t1.7-8_1080p.mp4" in html_index
+    assert 'id="btn-hero-pause"' in html_index
+    assert 'id="hero-timeline-progress"' in html_index
+
+    # Verify removal of reference image portion from homepage
+    assert 'id="defense-suite"' not in html_index
+    assert "SSIM Quality Gate (Human Eye)" not in html_index
+    assert "Blind DWT Canary Attribution" not in html_index
+    assert "Zero-Retention Ephemeral RAM" not in html_index
+
+    # Verify video static asset serving and HTTP 206 Partial Content Range streaming
+    res_video_range = client.get("/static/Picture_frame_moving_on_conveyor_41823c76_t1.7-8_1080p.mp4", headers={"Range": "bytes=0-1024"})
+    assert res_video_range.status_code == 206
+    assert res_video_range.headers.get("content-type") == "video/mp4"
+    assert "bytes 0-1024/" in res_video_range.headers.get("content-range", "")
+
+    for page in ["photocloak.html", "deeplens.html", "scamradar.html", "ledger.html"]:
+        res = client.get(f"/{page}")
+        assert res.status_code == 200
+        assert "Act 1: PhotoCloak" not in res.text
+        assert "Act 2: DeepLens" not in res.text
+        assert "Act 3: ScamRadar" not in res.text
+        assert "Act 4: Ledger" not in res.text

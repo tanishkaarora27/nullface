@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepLens — NullFace Digital Identity Defense</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Styles (Support both relative and /static/ paths) -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="bg-[#f2f3f7] text-[#0c1024] min-h-screen selection:bg-[#f43f8e] selection:text-white antialiased overflow-x-hidden w-full max-w-full">
+
+  <!-- ======================================================== -->
+  <!-- FLOATING PILL TOP NAVIGATION BAR -->
+  <!-- ======================================================== -->
+  <header class="sticky top-4 z-50 px-2 sm:px-6 my-4 w-full">
+    <div class="w-full max-w-5xl mx-auto bg-white/95 backdrop-blur-md rounded-full shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-slate-200/80 px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo (NullFace with magenta dot on .) -->
+      <a href="index.html" class="flex items-center space-x-1 group select-none shrink-0" title="NullFace Home">
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-[#0c1024]">NullFace<span class="text-[#f43f8e]">.</span></span>
+      </a>
+
+      <!-- Center Links (The 4 Acts - Act 2 Active) -->
+      <nav class="hidden md:flex items-center space-x-1.5 lg:space-x-2 text-xs sm:text-sm font-semibold">
+        <a href="photocloak.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="shield" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>PhotoCloak</span>
+        </a>
+        <a href="deeplens.html" class="bg-[#0c1024] text-white border border-[#0c1024] font-bold shadow-sm px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-[#f43f8e]"></i>
+          <span>DeepLens</span>
+        </a>
+        <a href="scamradar.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>ScamRadar</span>
+        </a>
+        <a href="ledger.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="database" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>Ledger</span>
+        </a>
+      </nav>
+
+    </div>
+
+    <!-- Mobile Scrollable Acts Pill Navigation -->
+    <div class="md:hidden flex items-center space-x-1.5 overflow-x-auto pt-2 px-1 max-w-5xl mx-auto">
+      <a href="photocloak.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="shield" class="w-3 h-3 text-[#64748b]"></i>
+        <span>PhotoCloak</span>
+      </a>
+      <a href="deeplens.html" class="whitespace-nowrap bg-[#0c1024] text-white border border-[#0c1024] px-3 py-1 rounded-full text-xs font-bold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="fingerprint" class="w-3 h-3 text-[#f43f8e]"></i>
+        <span>DeepLens</span>
+      </a>
+      <a href="scamradar.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="phone" class="w-3 h-3 text-[#64748b]"></i>
+        <span>ScamRadar</span>
+      </a>
+      <a href="ledger.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="database" class="w-3 h-3 text-[#64748b]"></i>
+        <span>Ledger</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- DEEPLENS HERO BANNER -->
+  <!-- ======================================================== -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-4 pb-2">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="space-y-2 max-w-2xl">
+        <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#f43f8e]">
+          <i data-lucide="fingerprint" class="w-4 h-4"></i>
+          <span>DeepLens &bull; Forensics &amp; Cryptographic Attribution</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0c1024] tracking-tight">
+          DeepLens: Multimodal Forensic Analysis
+        </h1>
+        <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+          Blindly extracts 64-bit DWT canary watermarks to prove identity theft within 50ms, computes 2D-FFT azimuthal power spectra to expose periodic GAN upsampling artifacts, and applies Vision Transformer Grad-CAM heatmaps.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap sm:flex-col gap-2 shrink-0">
+        <div class="flex items-center space-x-2 bg-slate-100 text-[#0c1024] text-xs font-bold px-3 py-1.5 rounded-full border border-slate-200">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-[#f43f8e]"></i>
+          <span>Hardware Popcount &lt; 50ms</span>
+        </div>
+        <div class="flex items-center space-x-2 bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1.5 rounded-full border border-amber-200">
+          <i data-lucide="activity" class="w-3.5 h-3.5 text-amber-600"></i>
+          <span>2D-FFT Power Spectrum</span>
+        </div>
+        <div class="flex items-center space-x-2 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200">
+          <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>C2PA Manifest Audit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- MAIN INTERACTIVE DEEPLENS SUITE -->
+  <!-- ======================================================== -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-4 space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- INPUT & ACTIONS -->
+      <div class="lg:col-span-4 space-y-4">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 space-y-5 shadow-sm">
+          <h2 class="text-sm font-bold text-[#0c1024] uppercase tracking-wider flex items-center space-x-2">
+            <i data-lucide="scan" class="w-4 h-4 text-[#f43f8e]"></i>
+            <span>Suspect Media Inspection</span>
+          </h2>
+          <p class="text-xs text-[#64748b]">Drop a compressed video frame or deepfake image to blindly extract the 64-bit watermark and verify identity ownership.</p>
+
+          <div class="border-2 border-dashed border-slate-200 hover:border-[#f43f8e] rounded-2xl p-5 text-center cursor-pointer transition-all bg-slate-50 hover:bg-pink-50/20" onclick="document.getElementById('forensics-input').click()">
+            <input type="file" id="forensics-input" accept="image/*" class="hidden" onchange="handleForensicsFileSelect(event)" />
+            <div id="forensics-upload-prompt" class="space-y-2 py-4">
+              <i data-lucide="search" class="w-8 h-8 text-[#f43f8e] mx-auto"></i>
+              <div class="text-xs text-[#0c1024] font-semibold">Upload Suspect Media Frame</div>
+              <div class="text-[10px] text-[#64748b]">Supports JPEG compressed (Q=50) video frames</div>
+            </div>
+            <img id="forensics-preview" class="hidden max-h-48 mx-auto rounded-xl object-contain shadow-sm border border-slate-200" alt="Forensics Preview" />
+          </div>
+
+          <button onclick="loadSeededDeepfakeFrame()" class="w-full py-2.5 px-4 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs text-[#0c1024] font-semibold flex items-center justify-center space-x-2 transition cursor-pointer">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-amber-500"></i>
+            <span>Load Stolen Frame (WhatsApp Q=50)</span>
+          </button>
+
+          <button id="btn-inspect" onclick="executeForensicsInspection()" class="w-full py-3.5 px-5 rounded-full bg-[#0c1024] hover:bg-[#1a233d] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md shadow-slate-900/10 transition cursor-pointer">
+            <i data-lucide="microscope" class="w-4 h-4 text-[#f43f8e]"></i>
+            <span>Execute DeepLens Forensics</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- FORENSICS DIAGNOSTIC TELEMETRY -->
+      <div class="lg:col-span-8 space-y-4">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 space-y-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-[#0c1024] uppercase tracking-wider flex items-center space-x-2">
+              <i data-lucide="activity" class="w-4 h-4 text-[#f43f8e]"></i>
+              <span>DeepLens Diagnostic Telemetry</span>
+            </h2>
+            <span id="forensics-verdict-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+              AWAITING SCAN
+            </span>
+          </div>
+
+          <!-- STAGE 1: CRYPTOGRAPHIC ATTRIBUTION CARD -->
+          <div id="attribution-card" class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-[#0c1024]">STAGE 1: 64-BIT DWT CANARY ATTRIBUTION (&lt;50ms)</span>
+              <span id="popcount-latency" class="text-[10px] font-semibold text-[#64748b]">Hardware Popcount: &mdash;</span>
+            </div>
+            <div id="attribution-details" class="text-xs text-[#334155] space-y-1">
+              <div class="text-[#64748b] italic">Run inspection to blindly extract watermark and execute bitwise XOR search across PostgreSQL ledger.</div>
+            </div>
+          </div>
+
+          <!-- STAGES 2 & 3: 2D-FFT SPECTRUM & GRAD-CAM HEATMAP -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- 2D-FFT Spectrum -->
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-[#0c1024]">STAGE 2: 2D-FFT SPECTRUM</span>
+                <span id="fft-anomaly-badge" class="text-[10px] font-bold text-[#64748b]">Score: &mdash;</span>
+              </div>
+              <div class="h-44 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-slate-200">
+                <img id="img-fft-spectrum" class="h-full w-full object-contain hidden" alt="2D-FFT Spectrum" />
+                <span id="fft-placeholder" class="text-xs text-[#64748b]">2D-FFT Azimuthal Spectrum</span>
+              </div>
+              <p class="text-[10px] text-[#64748b]">Exposes periodic high-frequency spikes caused by GAN upsampling deconvolution.</p>
+            </div>
+
+            <!-- Grad-CAM Attention Heatmap -->
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-[#0c1024]">STAGE 3: GRAD-CAM ATTENTION</span>
+                <span id="deepfake-prob-badge" class="text-[10px] font-bold text-purple-700">Probability: &mdash;</span>
+              </div>
+              <div class="h-44 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-slate-200">
+                <img id="img-gradcam-heatmap" class="h-full w-full object-contain hidden" alt="Grad-CAM Heatmap" />
+                <span id="gradcam-placeholder" class="text-xs text-[#64748b]">ViT Boundary Attention Heatmap</span>
+              </div>
+              <p class="text-[10px] text-[#64748b]">Localizes face boundary seam manipulation, blending tears, and facial morphing.</p>
+            </div>
+          </div>
+
+          <!-- STAGE 4: C2PA AUDIT -->
+          <div id="c2pa-card" class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 flex items-center justify-between text-xs">
+            <div>
+              <span class="font-bold text-[#0c1024]">STAGE 4: C2PA PROVENANCE AUDIT: </span>
+              <span id="c2pa-status" class="text-[#475569] font-mono">UNATTESTED</span>
+            </div>
+            <span id="c2pa-badge" class="text-[10px] px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700 font-bold">NO MANIFEST</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <div class="flex items-center justify-between bg-white rounded-3xl p-5 border border-slate-200 shadow-sm mt-8">
+      <a href="photocloak.html" class="flex items-center space-x-2 text-xs font-bold text-[#475569] hover:text-[#0c1024] px-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 transition">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Previous: PhotoCloak</span>
+      </a>
+      <a href="scamradar.html" class="flex items-center space-x-2 text-xs font-bold text-white px-5 py-2.5 rounded-full bg-[#0c1024] hover:bg-[#1a233d] font-bold shadow-md transition cursor-pointer">
+        <span>Proceed to ScamRadar</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 text-[#f43f8e]"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="max-w-6xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-200 mt-12 text-center text-xs text-[#64748b] space-y-2">
+    <div class="flex items-center justify-center space-x-2">
+      <span class="font-black text-base text-[#0c1024]">NullFace<span class="text-[#f43f8e]">.</span></span>
+      <span class="text-slate-300">|</span>
+      <span>NullFace Kavach-AI Protocol</span>
+    </div>
+    <p>Real-Time Adversarial Immunization, Cryptographic Forensics &amp; Multimodal Scam Defense.</p>
+  </footer>
+
+  <script src="./app.js" onerror="this.onerror=null;this.src='/static/app.js';"></script>
+</body>
+</html>

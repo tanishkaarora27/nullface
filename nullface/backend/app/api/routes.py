@@ -109,13 +109,18 @@ async def inspect(file: UploadFile = File(...), user: dict | None = Depends(opti
 # --------------------------------------------------------------------------- ScamRadar
 
 class AuditIn(BaseModel):
-    text: str = Field(min_length=1, max_length=8000)
-    channel: str = Field(default="WHATSAPP_MSG", pattern="^(LIVE_CALL|WHATSAPP_MSG|SMS|VOICE_NOTE)$")
+    text: str | None = None
+    transcript: str | None = None
+    channel: str = Field(default="WHATSAPP_MSG")
 
 
 @router.post("/scam/audit-text", summary="Audit SMS/WhatsApp text + URLs via Coercion RAG & Safe Browsing")
+@router.post("/scam/analyze-text", summary="Alias for scam audit")
 def audit_text(body: AuditIn, user: dict | None = Depends(optional_user)):
-    return scamradar.audit_text(body.text, user, body.channel)
+    content = body.text or body.transcript or ""
+    if not content:
+        raise HTTPException(400, "empty text")
+    return scamradar.audit_text(content, user, body.channel)
 
 
 @router.get("/scam/kb")
@@ -124,7 +129,68 @@ def kb():
     return {"tactics": k["tactics"], "scripts": len(k["scripts"]), "source": k["source"]}
 
 
-# --------------------------------------------------------------------------- system
+# --------------------------------------------------------------------------- system & demo fixtures
+
+@router.get("/system/status")
+def system_status():
+    stats = get_db().stats()
+    return {
+        "status": "OPERATIONAL",
+        "protected_assets_count": stats.get("immunization_ledger", 0),
+        "active_users": stats.get("users", 0),
+        "scans_completed": stats.get("forensic_scans", 0),
+    }
+
+
+@router.get("/demo/sample-portrait")
+@router.get("/system/sample-portrait")
+def demo_sample_portrait():
+    import pathlib
+    asset_path = pathlib.Path(__file__).parent.parent.parent / "tests" / "assets" / "sample_face.jpg"
+    if asset_path.exists():
+        raw = asset_path.read_bytes()
+        b64 = "data:image/jpeg;base64," + base64.b64encode(raw).decode()
+        return {"sample_image_data_url": b64, "image_data_url": b64}
+    return {"sample_image_data_url": "", "image_data_url": ""}
+
+
+@router.get("/demo/scenarios")
+@router.get("/system/demo-scenarios")
+def demo_scenarios():
+    return {
+        "scenarios": [
+            {
+                "id": "cbi_digital_arrest",
+                "title": "CBI Digital Arrest (Extortion)",
+                "transcript": "Main CBI Cyber Crime Cell Mumbai se Inspector bol raha hoon. Aapke Aadhaar par ek parcel pakda gaya hai jisme MDMA drugs paye gaye hain. Aap digital arrest me hain, video call band mat karna. Verification ke liye abhi 2 lakh transfer karo.",
+            },
+            {
+                "id": "trai_disconnection",
+                "title": "TRAI Immediate Mobile Disconnection",
+                "transcript": "This is Department of Telecommunications. All your mobile numbers will be blocked within 2 hours due to illegal advertising. Press 9 immediately to speak with our compliance executive.",
+            },
+            {
+                "id": "family_emergency",
+                "title": "Family Emergency / Bail Scam",
+                "transcript": "Papa mera accident ho gaya hai police station me hoon, 50 hazar turant transfer karo mamla settle karne ke liye, mummy ko mat batana.",
+            },
+        ]
+    }
+
+
+@router.get("/ledger/recent")
+def ledger_recent():
+    db = get_db()
+    with db.cursor() as cur:
+        cur.execute(
+            db._q(
+                "SELECT asset_id, user_id, watermark_bitstring, perceptual_hash, ssim_score, psnr_db, protection_profile, created_at "
+                "FROM immunization_ledger ORDER BY created_at DESC LIMIT 50"
+            )
+        )
+        rows = [db._row(cur, r) for r in cur.fetchall()]
+    return {"ledger": rows, "total_records": len(rows)}
+
 
 @router.get("/health")
 def health():

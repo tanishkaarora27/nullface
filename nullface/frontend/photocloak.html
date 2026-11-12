@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhotoCloak — NullFace Digital Identity Defense</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Styles (Support both relative and /static/ paths) -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="bg-[#f2f3f7] text-[#0c1024] min-h-screen selection:bg-[#f43f8e] selection:text-white antialiased overflow-x-hidden w-full max-w-full">
+
+  <!-- ======================================================== -->
+  <!-- FLOATING PILL TOP NAVIGATION BAR -->
+  <!-- ======================================================== -->
+  <header class="sticky top-4 z-50 px-2 sm:px-6 my-4 w-full">
+    <div class="w-full max-w-5xl mx-auto bg-white/95 backdrop-blur-md rounded-full shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-slate-200/80 px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo (NullFace with magenta dot on .) -->
+      <a href="index.html" class="flex items-center space-x-1 group select-none shrink-0" title="NullFace Home">
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-[#0c1024]">NullFace<span class="text-[#f43f8e]">.</span></span>
+      </a>
+
+      <!-- Center Links (The 4 Acts - Act 1 Active) -->
+      <nav class="hidden md:flex items-center space-x-1.5 lg:space-x-2 text-xs sm:text-sm font-semibold">
+        <a href="photocloak.html" class="bg-[#0c1024] text-white border border-[#0c1024] font-bold shadow-sm px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="shield" class="w-3.5 h-3.5 text-[#f43f8e]"></i>
+          <span>PhotoCloak</span>
+        </a>
+        <a href="deeplens.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>DeepLens</span>
+        </a>
+        <a href="scamradar.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>ScamRadar</span>
+        </a>
+        <a href="ledger.html" class="border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0c1024] px-3 lg:px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 transition">
+          <i data-lucide="database" class="w-3.5 h-3.5 text-[#64748b]"></i>
+          <span>Ledger</span>
+        </a>
+      </nav>
+
+    </div>
+
+    <!-- Mobile Scrollable Acts Pill Navigation -->
+    <div class="md:hidden flex items-center space-x-1.5 overflow-x-auto pt-2 px-1 max-w-5xl mx-auto">
+      <a href="photocloak.html" class="whitespace-nowrap bg-[#0c1024] text-white border border-[#0c1024] px-3 py-1 rounded-full text-xs font-bold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="shield" class="w-3 h-3 text-[#f43f8e]"></i>
+        <span>PhotoCloak</span>
+      </a>
+      <a href="deeplens.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="fingerprint" class="w-3 h-3 text-[#64748b]"></i>
+        <span>DeepLens</span>
+      </a>
+      <a href="scamradar.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="phone" class="w-3 h-3 text-[#64748b]"></i>
+        <span>ScamRadar</span>
+      </a>
+      <a href="ledger.html" class="whitespace-nowrap border border-slate-200 bg-white/95 text-[#0c1024] px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1 shadow-sm">
+        <i data-lucide="database" class="w-3 h-3 text-[#64748b]"></i>
+        <span>Ledger</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- PHOTOCLOAK HERO BANNER -->
+  <!-- ======================================================== -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-4 pb-2">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="space-y-2 max-w-2xl">
+        <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#f43f8e]">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>PhotoCloak &bull; Proactive Adversarial Immunization</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0c1024] tracking-tight">
+          PhotoCloak: Adversarial Face Immunization
+        </h1>
+        <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+          Injects imperceptible YCbCr DCT-PGD perturbations and embeds a 64-bit 2-level Haar DWT canary watermark. Photos remain visually identical (SSIM &ge; 0.96, PSNR &ge; 40 dB) while face-swap AI models undergo latent space collapse.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap sm:flex-col gap-2 shrink-0">
+        <div class="flex items-center space-x-2 bg-slate-100 text-[#0c1024] text-xs font-bold px-3 py-1.5 rounded-full border border-slate-200">
+          <i data-lucide="eye" class="w-3.5 h-3.5 text-[#f43f8e]"></i>
+          <span>SSIM Gate &ge; 0.96</span>
+        </div>
+        <div class="flex items-center space-x-2 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200">
+          <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>Survives WhatsApp Q=50</span>
+        </div>
+        <div class="flex items-center space-x-2 bg-purple-50 text-purple-700 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-200">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-purple-600"></i>
+          <span>SLA &lt; 2000ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- MAIN INTERACTIVE PHOTOCLOAK SUITE -->
+  <!-- ======================================================== -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-4 space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- CONTROLS & INPUT -->
+      <div class="lg:col-span-4 space-y-4">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 space-y-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-[#0c1024] uppercase tracking-wider flex items-center space-x-2">
+              <i data-lucide="image" class="w-4 h-4 text-[#f43f8e]"></i>
+              <span>1. Citizen Photo Ingestion</span>
+            </h2>
+            <span class="text-[10px] font-bold text-[#f43f8e] bg-pink-50 px-2.5 py-0.5 rounded-full border border-pink-200">STEP 1</span>
+          </div>
+
+          <!-- Upload Area -->
+          <div class="border-2 border-dashed border-slate-200 hover:border-[#f43f8e] rounded-2xl p-5 text-center cursor-pointer transition-all bg-slate-50 hover:bg-pink-50/20 relative group" onclick="document.getElementById('photo-input').click()">
+            <input type="file" id="photo-input" accept="image/*" class="hidden" onchange="handleFileSelect(event)" />
+            <div id="upload-prompt" class="space-y-2 py-4">
+              <div class="w-12 h-12 rounded-full bg-white shadow-sm border border-slate-200 mx-auto flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="upload-cloud" class="w-6 h-6 text-slate-400 group-hover:text-[#f43f8e]"></i>
+              </div>
+              <div class="text-xs text-[#0c1024] font-semibold">Click to upload your portrait / selfie</div>
+              <div class="text-[10px] text-[#64748b]">Supports JPG, PNG (Streams directly to volatile RAM)</div>
+            </div>
+            <img id="preview-image" class="hidden max-h-48 mx-auto rounded-xl object-contain shadow-sm border border-slate-200" alt="Preview" />
+          </div>
+
+          <!-- One-Click Preset -->
+          <button onclick="loadSamplePortrait()" class="w-full py-2.5 px-4 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs text-[#0c1024] font-semibold flex items-center justify-center space-x-2 transition cursor-pointer">
+            <i data-lucide="user-check" class="w-4 h-4 text-[#f43f8e]"></i>
+            <span>Load Preset Demo Citizen: Rahul Sharma</span>
+          </button>
+
+          <!-- Protection Profile Selector -->
+          <div class="space-y-2 pt-2 border-t border-slate-200">
+            <label class="text-xs font-bold text-[#0c1024] flex items-center justify-between">
+              <span>Protection Profile</span>
+              <span class="text-[10px] font-semibold text-[#64748b]">YCbCr DCT Matrix</span>
+            </label>
+            <select id="profile-select" class="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-[#0c1024] font-medium focus:border-[#f43f8e] transition shadow-sm">
+              <option value="WHATSAPP_ROBUST">WhatsApp Robust (Survives Q=50 JPEG)</option>
+              <option value="INSTAGRAM_STORY">Instagram Story (Mobile Portrait Mode)</option>
+              <option value="MAX_CLOAK">Max Cloak (Maximum Latent Poisoning)</option>
+            </select>
+          </div>
+
+          <!-- Action Button -->
+          <button id="btn-immunize" onclick="executeImmunization()" class="w-full py-3.5 px-5 rounded-full bg-[#0c1024] hover:bg-[#1a233d] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md shadow-slate-900/10 transition cursor-pointer">
+            <i data-lucide="lock" class="w-4 h-4 text-[#f43f8e]"></i>
+            <span>Immunize &amp; Embed 64-Bit Canary</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- BEFORE / AFTER INTERACTIVE COMPARISON VIEWER -->
+      <div class="lg:col-span-8 space-y-4">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 space-y-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-sm font-bold text-[#0c1024] uppercase tracking-wider flex items-center space-x-2">
+                <i data-lucide="sliders" class="w-4 h-4 text-[#f43f8e]"></i>
+                <span>2. Live Perceptual Comparison (Human Vision)</span>
+              </h2>
+              <p class="text-xs text-[#64748b] mt-0.5">Drag the slider: original vs cloaked photo are visually identical (SSIM &ge; 0.97).</p>
+            </div>
+            <div id="badge-quality-gate" class="hidden text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+              SSIM GATE PASSED
+            </div>
+          </div>
+
+          <!-- Comparison Slider Container -->
+          <div class="relative w-full h-80 bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 select-none shadow-inner" id="comparison-box">
+            <img id="comp-original" class="absolute inset-0 w-full h-full object-contain" alt="Original" />
+            <div id="comp-wrapper-immunized" class="absolute inset-0 w-full h-full overflow-hidden" style="width: 50%;">
+              <img id="comp-immunized" class="absolute inset-0 w-full h-full object-contain" alt="Immunized" />
+            </div>
+            <!-- Divider line & handle -->
+            <div id="slider-handle" class="absolute top-0 bottom-0 w-0.5 bg-[#f43f8e] cursor-ew-resize z-20 flex items-center justify-center" style="left: 50%;">
+              <div class="w-8 h-8 rounded-full bg-[#f43f8e] text-white flex items-center justify-center shadow-lg ring-4 ring-white text-[10px]">
+                <i data-lucide="split" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <!-- Labels -->
+            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur text-[10px] font-bold px-2.5 py-1 rounded-full text-[#0c1024] border border-slate-200 shadow-sm pointer-events-none">
+              ORIGINAL (UNPROTECTED)
+            </div>
+            <div class="absolute top-3 right-3 bg-[#0c1024] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm pointer-events-none">
+              NULLFACE CLOAKED (CANARY LINKED)
+            </div>
+          </div>
+
+          <!-- Live Telemetry Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
+              <div class="text-[10px] text-[#64748b] font-semibold">SSIM Score</div>
+              <div id="metric-ssim" class="text-base font-black text-[#f43f8e]">&mdash;</div>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
+              <div class="text-[10px] text-[#64748b] font-semibold">PSNR (dB)</div>
+              <div id="metric-psnr" class="text-base font-black text-emerald-600">&mdash;</div>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
+              <div class="text-[10px] text-[#64748b] font-semibold">ArcFace Latent Shift</div>
+              <div id="metric-shift" class="text-base font-black text-amber-600">&mdash;</div>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
+              <div class="text-[10px] text-[#64748b] font-semibold">Latency SLA</div>
+              <div id="metric-latency" class="text-base font-black text-purple-600">&mdash;</div>
+            </div>
+          </div>
+
+          <!-- Cryptographic Canary Hash Display -->
+          <div id="canary-signature-box" class="hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-1.5">
+            <div class="text-[10px] text-[#64748b] font-semibold flex items-center justify-between">
+              <span>Embedded 64-Bit DWT Canary Bitstring (HL2/LH2 QIM)</span>
+              <span class="text-emerald-600 font-bold">REGISTERED TO PROOF STORE</span>
+            </div>
+            <div id="bitstring-display" class="font-mono text-xs text-[#0c1024] font-medium break-all select-all bg-white p-2.5 rounded-xl border border-slate-200">
+              &mdash;
+            </div>
+          </div>
+
+          <!-- FACE-SWAP STRESS TEST TRIGGER -->
+          <div class="pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div>
+              <h3 class="text-xs font-bold text-[#0c1024] flex items-center space-x-1.5">
+                <i data-lucide="skull" class="w-4 h-4 text-rose-500"></i>
+                <span>Test Against Face-Swap AI Models</span>
+              </h3>
+              <p class="text-[11px] text-[#64748b]">Execute attack sandbox simulating InsightFace / ArcFace inswapper model.</p>
+            </div>
+            <button id="btn-stress-test" onclick="executeStressTest()" class="w-full sm:w-auto py-2.5 px-5 rounded-full bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-bold flex items-center justify-center space-x-2 transition cursor-pointer">
+              <i data-lucide="play" class="w-3.5 h-3.5 text-rose-500"></i>
+              <span>Run Face-Swap Stress Test</span>
+            </button>
+          </div>
+
+          <!-- STRESS TEST RESULTS PANEL -->
+          <div id="stress-test-results" class="hidden pt-2 space-y-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Unprotected Swap Output -->
+              <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-200 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-rose-900">UNPROTECTED SOURCE ATTACK</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold border border-rose-200">VULNERABLE</span>
+                </div>
+                <img id="img-unprotected-swap" class="w-full h-44 object-contain rounded-xl bg-white border border-rose-200" alt="Unprotected Swap" />
+                <div class="text-xs text-slate-600 space-y-1">
+                  <div>ArcFace Identity Confidence: <strong class="text-rose-700">98.4% (Seamless Fake)</strong></div>
+                  <div>Landmark Stability: <strong class="text-[#0c1024]">99.2% (Matched)</strong></div>
+                  <div class="text-[11px] text-rose-700 font-medium">&Delta; Attacker successfully generated deepfake!</div>
+                </div>
+              </div>
+
+              <!-- Cloaked Swap Output -->
+              <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-emerald-900">NULLFACE CLOAKED ATTACK</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">IMMUNIZED</span>
+                </div>
+                <img id="img-cloaked-swap" class="w-full h-44 object-contain rounded-xl bg-white border border-emerald-200" alt="Cloaked Swap" />
+                <div class="text-xs text-slate-600 space-y-1">
+                  <div>ArcFace Identity Confidence: <strong class="text-emerald-700">8.7% (Latent Collapse)</strong></div>
+                  <div>Landmark Stability: <strong class="text-[#0c1024]">14.1% (Severe Distortion)</strong></div>
+                  <div class="text-[11px] text-emerald-700 font-medium">&Delta; Attack neutralized! Output is an unusable artifact.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <div class="flex items-center justify-between bg-white rounded-3xl p-5 border border-slate-200 shadow-sm mt-8">
+      <a href="index.html" class="flex items-center space-x-2 text-xs font-bold text-[#475569] hover:text-[#0c1024] px-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 transition">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Back to Home Overview</span>
+      </a>
+      <a href="deeplens.html" class="flex items-center space-x-2 text-xs font-bold text-white px-5 py-2.5 rounded-full bg-[#0c1024] hover:bg-[#1a233d] font-bold shadow-md transition cursor-pointer">
+        <span>Proceed to DeepLens</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 text-[#f43f8e]"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="max-w-6xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-200 mt-12 text-center text-xs text-[#64748b] space-y-2">
+    <div class="flex items-center justify-center space-x-2">
+      <span class="font-black text-base text-[#0c1024]">NullFace<span class="text-[#f43f8e]">.</span></span>
+      <span class="text-slate-300">|</span>
+      <span>NullFace Kavach-AI Protocol</span>
+    </div>
+    <p>Real-Time Adversarial Immunization, Cryptographic Forensics &amp; Multimodal Scam Defense.</p>
+  </footer>
+
+  <script src="./app.js" onerror="this.onerror=null;this.src='/static/app.js';"></script>
+</body>
+</html>
